@@ -17,12 +17,22 @@
 
 	<main>
 		<section id="about-me">
-			<h1></h1>
+			<h1>My Portfolio</h1>
+			<div id="profile-container">
+				<p>Loading GitHub profile...</p>
+			</div>
 		</section>
-
 		<section id="portfolio">
 			<h2>Portfolio</h2>
-			<div id="repo-container"></div>
+			<div id="filter-container">
+				<button type="button" data-lang="all">All</button>
+                <button type="button" data-lang="JavaScript">JavaScript</button>
+                <button type="button" data-lang="HTML">HTML</button>
+                <button type="button" data-lang="Java">Java</button>
+				<button type="button" data-lang="C++">C++</button>
+				<button type="button" data-lang="Kotlin">Kotlin</button>
+			</div>
+			<div id="repo-container" class="repo-container"></div>
 		</section>
 	</main>
 

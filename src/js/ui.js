@@ -43,7 +43,7 @@ export function renderRepos(repos){
         const url = document.createElement('a')
         url.href = repo.html_url
         url.target = '_blank'
-        url.textContent = 'View on GitHub'
+        url.textContent = ' View on GitHub'
 
         card.append(title, description, language, url)
         container.appendChild(card)
