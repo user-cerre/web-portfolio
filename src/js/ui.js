@@ -44,8 +44,17 @@ export function renderRepos(repos){
         url.href = repo.html_url
         url.target = '_blank'
         url.textContent = ' View on GitHub'
-
+        
         card.append(title, description, language, url)
+        card.dataset.lang = repo.language || 'Other'
         container.appendChild(card)
     })
+}
+export function renderReadme(html) {
+    const container = document.querySelector('#readme-container')
+    if (!html) {
+        container.innerHTML = '<p>No profile README available.</p>'
+        return
+    }
+    container.innerHTML = html
 }

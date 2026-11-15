@@ -11,16 +11,27 @@
 	<header>
 		<nav>
 			<a href="#about-me">About me</a>
+			<a href= "#activity">GitHub Activity</a>
 			<a href="#portfolio">Portfolio</a>
 		</nav>
+		<button type="button" id="theme-toggle" aria-label="Toggle theme">🌙</button>
 	</header>
 
 	<main>
 		<section id="about-me">
-			<h1>My Portfolio</h1>
-			<div id="profile-container">
-				<p>Loading GitHub profile...</p>
-			</div>
+    		<h1>My Portfolio</h1>
+    		<div class="about-grid">
+        		<div id="profile-container">
+         			<p>Loading GitHub profile...</p>
+       			</div>
+        		<div id="readme-container" class="readme-card">
+            		<p>Loading profile README...</p>
+        		</div>
+    		</div>
+		</section>
+		<section id="activity">
+    		<h2>GitHub Activity</h2>
+    		<img src="https://ghchart.rshah.org/2563eb/user-cerre" alt="GitHub Contribution Chart">
 		</section>
 		<section id="portfolio">
 			<h2>Portfolio</h2>
