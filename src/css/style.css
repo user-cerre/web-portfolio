@@ -64,6 +64,41 @@ main {
   border: 1px solid var(--color-border);
   border-radius: 8px;
 }
+#profile-container{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+#profile-container img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--color-primary);
+}
+#filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+#filter-container button {
+  padding: 8px 16px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+#filter-container button:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
 
 h1,
 h2,
@@ -91,4 +126,33 @@ p {
     grid-template-columns: 1fr;
     gap: 16px;
   }
+}
+.repo-card span {
+  display: inline-block;
+  background: var(--color-background);
+  color: var(--color-muted);
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-right: 12px;
+}
+
+.repo-card a {
+  display: inline-block;
+  margin-top: 12px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.repo-card a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  width: min(100% - 32px, var(--content-width));
+  margin: 0 auto;
+  padding: 24px 0;
+  color: var(--color-muted);
+  text-align: center;
 }
