@@ -1,3 +1,4 @@
+/* Base & Theme Variables */
 :root {
   --color-background: #f5f7fb;
   --color-surface: #ffffff;
@@ -19,21 +20,7 @@ body[data-theme="dark"] {
 * {
   box-sizing: border-box;
 }
-#theme-toggle {
-  background: var(--color-surface);
-  color: var(--color-text);
-  border: 1px solid var(--color-border);
-  border-radius: 999px;
-  padding: 8px 14px;
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: transform 0.2s ease, border-color 0.2s ease;
-}
 
-#theme-toggle:hover {
-  border-color: var(--color-primary);
-  transform: scale(1.08);
-}
 html {
   font-size: 16px;
   scroll-behavior: smooth;
@@ -58,6 +45,14 @@ a {
   color: var(--color-primary);
 }
 
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+/* Sticky Header & Navigation */
 header {
   position: sticky;
   top: 0;
@@ -71,44 +66,82 @@ header {
   background: var(--color-background);
   border-bottom: 1px solid var(--color-border);
 }
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.header-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.logo-link:hover .header-logo {
+  transform: rotate(15deg) scale(1.08);
+}
+
 header nav {
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
 }
+
 header nav a {
   text-decoration: none;
   font-weight: 600;
 }
+
 header nav a:hover {
   text-decoration: underline;
 }
 
+#theme-toggle {
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+#theme-toggle:hover {
+  border-color: var(--color-primary);
+  transform: scale(1.08);
+}
+
+/* Main Layout & Sections */
 main {
   width: min(100% - 32px, var(--content-width));
   margin: 0 auto;
+  padding-top: 24px;
 }
 
-.repo-container {
+section {
+  scroll-margin-top: 88px;
+  margin-bottom: 48px;
+}
+
+/* About Me & Profile README */
+.about-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
-  padding: 16px 0 32px;
+  grid-template-columns: 280px 1fr;
+  gap: 32px;
+  align-items: start;
 }
 
-.repo-container > * {
-  min-width: 0;
-  padding: 20px;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-}
-#profile-container{
+#profile-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 24px;
-  margin-bottom: 32px;
+  gap: 16px;
 }
+
 #profile-container img {
   width: 120px;
   height: 120px;
@@ -116,6 +149,27 @@ main {
   object-fit: cover;
   border: 2px solid var(--color-primary);
 }
+
+.readme-card {
+  min-width: 0;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 24px;
+  overflow-x: auto;
+}
+
+.readme-card img {
+  display: inline-block;
+  margin: 4px 6px 4px 0;
+  vertical-align: middle;
+}
+
+.readme-card .anchor {
+  display: none;
+}
+
+/* Portfolio Filters & Repository Cards */
 #filter-container {
   display: flex;
   flex-wrap: wrap;
@@ -138,38 +192,21 @@ main {
   color: var(--color-primary);
 }
 
-h1,
-h2,
-h3,
-p {
-  margin-top: 0;
+.repo-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  padding-top: 8px;
 }
-section {
-  scroll-margin-top: 80px;
+
+.repo-card {
+  min-width: 0;
+  padding: 20px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
 }
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 16px 0;
-  }
 
-  h1 {
-    font-size: 28px;
-  }
-
-  h2 {
-    font-size: 21.6px;
-  }
-
-  .repo-container {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-  .about-grid {
-    grid-template-columns: 1fr;
-  }
-}
 .repo-card span {
   display: inline-block;
   background: var(--color-background);
@@ -191,26 +228,15 @@ section {
 .repo-card a:hover {
   text-decoration: underline;
 }
-.about-grid {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 32px;
-  align-items: start;
-  margin-bottom: 32px;
-}
 
-.readme-card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  padding: 24px;
-  overflow-x: auto;
-}
+.repo-card[data-lang="JavaScript"] { border-left: 4px solid #f7df1e; }
+.repo-card[data-lang="HTML"]       { border-left: 4px solid #e34f26; }
+.repo-card[data-lang="Java"]       { border-left: 4px solid #f89820; }
+.repo-card[data-lang="C++"]        { border-left: 4px solid #00599c; }
+.repo-card[data-lang="Kotlin"]     { border-left: 4px solid #7f52ff; }
+.repo-card[data-lang="Other"]      { border-left: 4px solid var(--color-muted); }
 
-.readme-card img {
-  display: inline-block;
-}
-
+/* Footer */
 footer {
   width: min(100% - 32px, var(--content-width));
   margin: 0 auto;
@@ -218,35 +244,38 @@ footer {
   color: var(--color-muted);
   text-align: center;
 }
-.repo-card[data-lang="JavaScript"] {
-  border-left: 4px solid #f7df1e;
-}
-.repo-card[data-lang="HTML"]{
-  border-left: 4px solid #e34f26;
-}
-.repo-card[data-lang="Java"]{
-  border-left: 4px solid #f89820;
-}
-.repo-card[data-lang="C++"]{
-  border-left: 4px solid #00599c;
-}
-.repo-card[data-lang="Kotlin"]{
-  border-left: 4px solid #7f52ff;
-}
-.repo-card[data-lang="Other"]{
-  border-left: 4px solid var(--color-muted);
-}
-.logo-link {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-}
-.header-logo {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  transition: transform 0.3s ease;
-}
-.logo-link:hover .header-logo {
-  transform: rotate(15deg) scale(1.08);
+
+/* Responsive (Mobile & Tablet) */
+@media (max-width: 768px) {
+  header {
+    padding: 12px 16px;
+    gap: 12px;
+  }
+
+  header nav {
+    gap: 12px;
+    font-size: 0.9rem;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 21.6px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .readme-card {
+    padding: 16px;
+  }
+
+  .repo-container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
 }
