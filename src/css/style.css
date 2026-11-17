@@ -234,6 +234,7 @@ section {
 .repo-card[data-lang="Java"]       { border-left: 4px solid #f89820; }
 .repo-card[data-lang="C++"]        { border-left: 4px solid #00599c; }
 .repo-card[data-lang="Kotlin"]     { border-left: 4px solid #7f52ff; }
+.repo-card[data-lang="CSS"]        { border-left: 4px solid #3606b9; }
 .repo-card[data-lang="Other"]      { border-left: 4px solid var(--color-muted); }
 
 /* Footer */
